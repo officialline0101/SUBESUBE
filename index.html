@@ -369,6 +369,13 @@ function showMenu(menu) {
 
     // 選択されたメニューセクションを表示
     document.getElementById(menu).classList.add('active');
+
+    // すべてのメニューボタンの選択状態をリセット
+    document.querySelectorAll('.menu-sections button').forEach(btn => btn.classList.remove('active'));
+
+    // 選択されたボタンにactiveクラスを追加
+    const selectedButton = document.querySelector(`.menu-sections button[onclick="showMenu('${menu}')"]`);
+    selectedButton.classList.add('active');
 }
         
 function selectDate(cell) {
