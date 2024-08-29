@@ -200,11 +200,13 @@
             <button type="button" id="repeatVisit" onclick="selectVisit(this)">2回目以降</button>
         </div>
 
-        <div class="label">メニューをお選びください</div>
-        <div class="menu-sections">
+        <!-- 性別が選択されるまで非表示にする部分 -->
+        <div class="label" id="menuLabel">メニューをお選びください</div>
+        <div class="menu-sections" id="menuSections">
             <button type="button" onclick="showMenu('male')">脱毛</button>
             <button type="button" onclick="showMenu('female')">フェイシャル</button>
             <button type="button" onclick="showMenu('san')">ホワイトニング</button>
+            <button type="button" onclick="showMenu('san2')">ホワイトニング</button>
             <button type="button" onclick="showMenu('for')">ハリウッドブロウリフト</button>
         </div>
 
@@ -260,6 +262,14 @@
             <p style="text-align: center; margin-top: 10px;">◆ハリウッドブロウリフト◆</p>
             <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this)">【初回】ハリウッドブロウリフト（眉）</button>
+                <button type="button" onclick="selectSymptom(this)">【１回】ハリウッドブロウリフト（眉）</button>
+                <button type="button" onclick="selectSymptom(this)">【前回から6週間以内】ハリウッドブロウリフト（眉）</button>
+            </div>
+        </div>
+
+        <div id="san2" class="menu-section">
+            <p style="text-align: center; margin-top: 10px;">◆ハリウッドブロウリフト◆</p>
+            <div class="symptoms">
                 <button type="button" onclick="selectSymptom(this)">【１回】ハリウッドブロウリフト（眉）</button>
                 <button type="button" onclick="selectSymptom(this)">【前回から6週間以内】ハリウッドブロウリフト（眉）</button>
             </div>
@@ -334,11 +344,41 @@
 
 let selectedMenuTime = 0;
 
+        // 初期状態でメニューセクションを非表示にする
+        document.getElementById('menuLabel').style.display = 'none';
+        document.getElementById('menuSections').style.display = 'none';
+
         function selectVisit(element) {
+            // 訪問回数ボタンの選択状態をリセット
             document.getElementById('firstVisit').classList.remove('active');
             document.getElementById('repeatVisit').classList.remove('active');
+            
+            // クリックされたボタンを選択状態にする
             element.classList.add('active');
+            
+            // 選択された訪問回数を変数に格納
             visitCount = element.innerText;
+            
+            // 性別が選択されたらメニューセクションを表示する
+            document.getElementById('menuLabel').style.display = 'block';
+            document.getElementById('menuSections').style.display = 'block';
+
+            // メニューの表示をリセット
+            document.querySelectorAll('.menu-sections button').forEach(button => {
+                button.style.display = 'none';
+            });
+
+            if (visitCount === '初回') {
+                document.querySelector('button[onclick="showMenu(\'male\')"]').style.display = 'inline-block';
+                document.querySelector('button[onclick="showMenu(\'female\')"]').style.display = 'inline-block';
+                document.querySelector('button[onclick="showMenu(\'san\')"]').style.display = 'inline-block';
+                document.querySelector('button[onclick="showMenu(\'for\')"]').style.display = 'inline-block';
+            } else if (visitCount === '2回目以降') {
+                document.querySelector('button[onclick="showMenu(\'male\')"]').style.display = 'inline-block';
+                document.querySelector('button[onclick="showMenu(\'female\')"]').style.display = 'inline-block';
+                document.querySelector('button[onclick="showMenu(\'san2\')"]').style.display = 'inline-block';
+                document.querySelector('button[onclick="showMenu(\'for\')"]').style.display = 'inline-block';
+            }
         }
 
         function selectSymptom(button) {
