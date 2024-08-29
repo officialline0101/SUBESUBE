@@ -183,6 +183,31 @@
 #repairLabel, #repairButtons {
     display: none;
 }
+.menu-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center; /* ボタンを中央揃えにする */
+    margin-bottom: 20px;
+}
+
+.menu-sections button {
+    flex: 1;
+    padding: 11px 12px; /* ボタンのサイズを少し小さく */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+    margin-bottom: 12px; /* ボタンの間に余白を追加 */
+}
+
+.menu-sections button.active {
+    background-color: #444;
+    color: #fff;
+}
     </style>
 </head>
 <body>
