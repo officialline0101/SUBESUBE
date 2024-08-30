@@ -225,7 +225,7 @@
         <button type="button" onclick="selectSymptom(this)">【光脱毛】わき/肩/うなじ</button>
         <button type="button" onclick="selectSymptom(this)">【光脱毛】ひじ上/ひじ下</button>
         <button type="button" onclick="selectSymptom(this)">【光脱毛】ひざ上/ひざ下/背中</button>
-        <button type="button" onclick="selectSymptom(this)">【光脱毛】手足指・甲/耳/へそまわり<br>ひざ小僧/乳輪など</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】手足指・甲/耳/へそまわり/ひざ小僧/乳輪など</button>
         <button type="button" onclick="selectSymptom(this)">【光脱毛】胸/お腹/ヒップ</button>
         <button type="button" onclick="selectSymptom(this)">【光脱毛】Ｖ/Ｉ/Ｏ</button>
         <button type="button" onclick="selectSymptom(this)">【光脱毛】ＶＩＯセット</button>
@@ -238,14 +238,14 @@
         <div id="female" class="menu-section">
             <p style="text-align: center; margin-top: 10px;">◆その他メニュー （エステ）◆</p>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)">歯のセルフホワイトニング</button>
+                <button type="button" onclick="selectSymptom(this)">☆歯のセルフホワイトニング☆(1回ごと、または3・6・12回コースあり)</button>
             </div>
         </div>
 
         <div id="san" class="menu-section">
             <p style="text-align: center; margin-top: 10px;">◆その他メニュー （まつげ・メイクなど）◆</p>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)">ハリウッドブロウリフト</button>
+                <button type="button" onclick="selectSymptom(this)">ハリウッドブロウリフト(眉を整えるメニュー)</button>
             </div>
         </div>
 
@@ -255,15 +255,15 @@
                 <button type="button" onclick="selectSymptom(this)">角質・毛穴フェイシャル</button>
                 <button type="button" onclick="selectSymptom(this)">ニキビケア・肌荒れフェイシャル</button>
                 <button type="button" onclick="selectSymptom(this)">美白・エイジングケアフェイシャル</button>
-                <button type="button" onclick="selectSymptom(this)">【ハーブピーリング】<br>ライト版♪マグマハーブ！</button>
-                <button type="button" onclick="selectSymptom(this)">10回のエステより1回のハーブ☆<br>本気の肌質改善!【ハーブピーリング】お顔</button>
+                <button type="button" onclick="selectSymptom(this)">【ハーブピーリング】ライト版♪マグマハーブ！</button>
+                <button type="button" onclick="selectSymptom(this)">10回のエステより1回のハーブ☆本気の肌質改善!【ハーブピーリング】お顔</button>
             </div>
         </div>
 
         <div id="for" class="menu-section">
             <p style="text-align: center; margin-top: 10px;">◆ボディ◆</p>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)">10回のエステより1回の【ハーブピーリング】<br>☆本気の肌質改善!  ボディ 1ｇ</button>
+                <button type="button" onclick="selectSymptom(this)">10回のエステより1回の【ハーブピーリング】☆本気の肌質改善!  ボディ 1ｇ</button>
             </div>
         </div>
 
@@ -314,7 +314,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             liff.init({
-                liffId: '2006165766-q6BGg0oD'
+                liffId: '2005254357-zKma9BZk'
             }).then(() => {
                 console.log('LIFF初期化成功');
             }).catch((err) => {
@@ -446,11 +446,10 @@ if (!formData.name || !formData.phone) {
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nメニュー：${formData.selectedSymptom}\nご来店回数：【${formData.visitCount}】\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
+                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nメニュー：${formData.selectedSymptom}${formData.visitCount}\nご来店回数：【${formData.visitCount}】\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
-                alert('ご予約ありがとうございます。
-ご来店心よりお待ちしております。');
+                alert('当日キャンセルは無いようにお願いいたします。キャンセル料発生いたします。');
                 /* LIFFウィンドウを閉じる */
                 liff.closeWindow();
             }).catch((err) => {
@@ -479,7 +478,7 @@ async function fetchAvailability(date) {
         return;
     }
 
-    const url = 'https://script.google.com/macros/s/AKfycbxjtHCtPKelVPBvrpEC4Oi_YC3cX6V0yPaWLR5wLaIXYxI-hRgFDZsNlM7lKp9PWppa/exec' + 
+    const url = 'https://script.google.com/macros/s/AKfycbyVpOPJeMa5G-AXWCcqooULWyo17yxCvID8kI4JAEVkiaZgbddQOHiWejnW_hqxjwXlbw/exec' + 
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
     try {
@@ -636,24 +635,6 @@ for (let i = 0; i < 7; i++) {
             }
         }
 
-    // ×と×の間のセル数が3未満の場合、その間のセルを×にする
-    for (let j = 0; j < times.length - 1; j++) {
-        let start = -1;
-        let end = -1;
-
-        // ×の開始位置を見つける
-        if (table.rows[j].cells[i + 1].textContent === '✕') {
-            start = j;
-        }
-
-        // その次の×を見つける
-        for (let k = j + 1; k < times.length; k++) {
-            if (table.rows[k].cells[i + 1].textContent === '✕') {
-                end = k;
-                break;
-            }
-        }
-
         // ×と×の間のセル数が3未満の場合、その間のセルを×に変更
         if (end !== -1 && end - start < 4) {
             for (let k = start + 1; k < end; k++) {
@@ -688,6 +669,7 @@ for (let i = 0; i < 7; i++) {
         }
     }
 }
+
     
         }
 
