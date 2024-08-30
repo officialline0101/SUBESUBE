@@ -512,11 +512,12 @@ function updateCalendar(availability, businessDays) {
     const table = calendar.querySelector('table tbody');
 
     const times = [
-        '10:00', '10:30', '11:00', '11:30',
+        '09:30','10:00', '10:30', '11:00', '11:30',
         '12:00', '12:30', '13:00', '13:30',
         '14:00', '14:30', '15:00', '15:30',
         '16:00', '16:30', '17:00', '17:30',
-        '18:00', '18:30', '19:00', '19:30'
+        '18:00', '18:30', '19:00', '19:30',
+        '20:00', '20:30', '21:00'
     ];
 
     if (table.rows.length === 0) {
@@ -636,6 +637,24 @@ for (let i = 0; i < 7; i++) {
             }
         }
 
+    // ×と×の間のセル数が3未満の場合、その間のセルを×にする
+    for (let j = 0; j < times.length - 1; j++) {
+        let start = -1;
+        let end = -1;
+
+        // ×の開始位置を見つける
+        if (table.rows[j].cells[i + 1].textContent === '✕') {
+            start = j;
+        }
+
+        // その次の×を見つける
+        for (let k = j + 1; k < times.length; k++) {
+            if (table.rows[k].cells[i + 1].textContent === '✕') {
+                end = k;
+                break;
+            }
+        }
+
         // ×と×の間のセル数が3未満の場合、その間のセルを×に変更
         if (end !== -1 && end - start < 4) {
             for (let k = start + 1; k < end; k++) {
@@ -654,8 +673,8 @@ for (let i = 0; i < 7; i++) {
 
     // ×と×の間のセル数が3未満の場合、その間のセルを×にする部分の後に以下を追加
     for (let i = 0; i < 7; i++) {
-        const twentyOClockRow = times.indexOf('19:00');
-        const twentyOneOClockRow = times.indexOf('19:30');
+        const twentyOClockRow = times.indexOf('20:30');
+        const twentyOneOClockRow = times.indexOf('21:00');
 
         for (let j = twentyOClockRow; j < times.length; j++) {
             const cell = table.rows[j].cells[i + 1];
@@ -669,7 +688,7 @@ for (let i = 0; i < 7; i++) {
             }
         }
     }
-} 
+}
     
         }
 
