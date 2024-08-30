@@ -183,31 +183,6 @@
 #repairLabel, #repairButtons {
     display: none;
 }
-.menu-sections {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center; /* ボタンを中央揃えにする */
-    margin-bottom: 20px;
-}
-
-.menu-sections button {
-    flex: 1;
-    padding: 11px 12px; /* ボタンのサイズを少し小さく */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f7f7f7;
-    cursor: pointer;
-    box-sizing: border-box;
-    text-align: center;
-    white-space: nowrap;
-    margin-bottom: 12px; /* ボタンの間に余白を追加 */
-}
-
-.menu-sections button.active {
-    background-color: #444;
-    color: #fff;
-}
     </style>
 </head>
 <body>
@@ -229,84 +204,66 @@
         <div class="label" id="menuLabel">メニューをお選びください</div>
         <div class="menu-sections" id="menuSections">
             <button type="button" onclick="showMenu('male')">脱毛</button>
-            <button type="button" onclick="showMenu('female')">フェイシャル</button>
-            <button type="button" onclick="showMenu('san')">ホワイトニング</button>
-            <button type="button" onclick="showMenu('san2')">ホワイトニング</button>
-            <button type="button" onclick="showMenu('for')">ハリウッドブロウリフト</button>
+            <button type="button" onclick="showMenu('female')">その他メニュー （エステ）</button>
+            <button type="button" onclick="showMenu('san')">その他メニュー （まつげ・メイクなど）</button>
+            <button type="button" onclick="showMenu('san2')">フェイシャル</button>
+            <button type="button" onclick="showMenu('for')">ボディ</button>
         </div>
 
 <div id="male" class="menu-section">
-    <p style="text-align: center; margin-top: 10px;">◆全身脱毛◆</p>
+    <p style="text-align: center; margin-top: 10px;">◆脱毛◆</p>
     <div class="symptoms">
-        <button type="button" onclick="selectSymptom(this)">全身まるごと</button>
+        <button type="button" onclick="selectSymptom(this)">フェイスＷＡＸ</button>
+        <button type="button" onclick="selectSymptom(this)">【 お顔脱毛 × ハリウッドブロウリフト 】</button>
+        <button type="button" onclick="selectSymptom(this)">【セレクト光脱毛】３ヶ所(Ｓ＋Ｍ＋Ｌ)</button>
+        <button type="button" onclick="selectSymptom(this)">【セレクト光脱毛】4ヶ所(Ｓ＋Ｍ＋Ｍ＋Ｌ)</button>
+        <button type="button" onclick="selectSymptom(this)">【セレクト光脱毛】5ヶ所(Ｓ＋Ｍ＋Ｍ＋Ｌ＋Ｌ)</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】全身脱毛</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】お顔の各パーツ</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】お顔セット</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】おひげセット</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】わき/肩/うなじ</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】ひじ上/ひじ下</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】ひざ上/ひざ下/背中</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】手足指・甲/耳/へそまわり/ひざ小僧/乳輪など</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】胸/お腹/ヒップ</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】Ｖ/Ｉ/Ｏ</button>
+        <button type="button" onclick="selectSymptom(this)">【光脱毛】ＶＩＯセット</button>
+        <button type="button" onclick="selectSymptom(this)">部位脱毛コースの方(30分)</button>
+        <button type="button" onclick="selectSymptom(this)">部位脱毛コースの方(60分)</button>
+        <button type="button" onclick="selectSymptom(this)">全身脱毛コースの方</button>
     </div>
-
-    <div style="text-align: center; margin-top: 10px;">
-        <p>◆セレクト脱毛◆</p>
-    </div>
-
-    <div class="symptoms">
-        <button type="button" onclick="selectSymptom(this)">３箇所セレクト</button>
-        <button type="button" onclick="selectSymptom(this)">４箇所セレクト</button>
-        <button type="button" onclick="selectSymptom(this)">５箇所セレクト</button>
-    </div>
-
-    <div style="text-align: center; margin-top: 10px;">
-        <p>◆部分脱毛◆</p>
-    </div>
-
-    <div class="symptoms">
-        <button type="button" onclick="selectSymptom(this)">S:お顔各パーツ</button>
-        <button type="button" onclick="selectSymptom(this)">S:わき/肩/うなじ/乳首周り/耳/へそ周り</button>
-        <button type="button" onclick="selectSymptom(this)">S:手指・甲/足指・甲</button>
-        <button type="button" onclick="selectSymptom(this)">M:おひげ</button>
-        <button type="button" onclick="selectSymptom(this)">M:ひじ上/ひじ下</button>
-        <button type="button" onclick="selectSymptom(this)">M:ひざ下</button>
-        <button type="button" onclick="selectSymptom(this)">M:胸/お腹/ヒップ</button>
-        <button type="button" onclick="selectSymptom(this)">M:V/I/O</button>
-        <button type="button" onclick="selectSymptom(this)">L:お腹まるごと</button>
-        <button type="button" onclick="selectSymptom(this)">L:ひざ上</button>
-        <button type="button" onclick="selectSymptom(this)">L:背中</button>
-        <button type="button" onclick="selectSymptom(this)">L:VIOまるごと</button>
-    </div>
-</div>
+        </div>
 
         <div id="female" class="menu-section">
-            <p style="text-align: center; margin-top: 10px;">◆フェイシャル◆</p>
+            <p style="text-align: center; margin-top: 10px;">◆その他メニュー （エステ）◆</p>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)">毛穴・角質フェイシャル</button>
-                <button type="button" onclick="selectSymptom(this)">ニキビ・敏感肌フェイシャル</button>
-                <button type="button" onclick="selectSymptom(this)">美肌・エイジングケアフェイシャル</button>
-                <button type="button" onclick="selectSymptom(this)">ハーブお試し版♪マグマハーブ</button>
-                <button type="button" onclick="selectSymptom(this)">本気の肌質改善♪ハーブピーリング</button>
-                <button type="button" onclick="selectSymptom(this)">ハーブピーリング ボディ</button>
+                <button type="button" onclick="selectSymptom(this)">☆歯のセルフホワイトニング☆(1回ごと、または3・6・12回コースあり)</button>
             </div>
         </div>
 
         <div id="san" class="menu-section">
-            <p style="text-align: center; margin-top: 10px;">◆ハリウッドブロウリフト◆</p>
+            <p style="text-align: center; margin-top: 10px;">◆その他メニュー （まつげ・メイクなど）◆</p>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)">【初回】ハリウッドブロウリフト（眉）</button>
-                <button type="button" onclick="selectSymptom(this)">【１回】ハリウッドブロウリフト（眉）</button>
-                <button type="button" onclick="selectSymptom(this)">【前回から6週間以内】ハリウッドブロウリフト（眉）</button>
+                <button type="button" onclick="selectSymptom(this)">ハリウッドブロウリフト(眉を整えるメニュー)</button>
             </div>
         </div>
 
         <div id="san2" class="menu-section">
-            <p style="text-align: center; margin-top: 10px;">◆ハリウッドブロウリフト◆</p>
+            <p style="text-align: center; margin-top: 10px;">◆フェイシャル◆</p>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)">【１回】ハリウッドブロウリフト（眉）</button>
-                <button type="button" onclick="selectSymptom(this)">【前回から6週間以内】ハリウッドブロウリフト（眉）</button>
+                <button type="button" onclick="selectSymptom(this)">角質・毛穴フェイシャル</button>
+                <button type="button" onclick="selectSymptom(this)">ニキビケア・肌荒れフェイシャル</button>
+                <button type="button" onclick="selectSymptom(this)">美白・エイジングケアフェイシャル</button>
+                <button type="button" onclick="selectSymptom(this)">【ハーブピーリング】ライト版♪マグマハーブ！</button>
+                <button type="button" onclick="selectSymptom(this)">10回のエステより1回のハーブ☆本気の肌質改善!【ハーブピーリング】お顔</button>
             </div>
         </div>
 
         <div id="for" class="menu-section">
-            <p style="text-align: center; margin-top: 10px;">◆ホワイトニング◆</p>
+            <p style="text-align: center; margin-top: 10px;">◆ボディ◆</p>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this)">【1回券】セルフホワイトニング</button>
-                <button type="button" onclick="selectSymptom(this)">【3回券】セルフホワイトニング</button>
-                <button type="button" onclick="selectSymptom(this)">【6回券】セルフホワイトニング</button>
-                <button type="button" onclick="selectSymptom(this)">【12回券】セルフホワイトニング</button>
+                <button type="button" onclick="selectSymptom(this)">10回のエステより1回の【ハーブピーリング】☆本気の肌質改善!  ボディ 1ｇ</button>
             </div>
         </div>
 
@@ -357,7 +314,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             liff.init({
-                liffId: '2005254357-zKma9BZk'
+                liffId: '2006165766-q6BGg0oD'
             }).then(() => {
                 console.log('LIFF初期化成功');
             }).catch((err) => {
@@ -397,10 +354,12 @@ let selectedMenuTime = 0;
                 document.querySelector('button[onclick="showMenu(\'male\')"]').style.display = 'inline-block';
                 document.querySelector('button[onclick="showMenu(\'female\')"]').style.display = 'inline-block';
                 document.querySelector('button[onclick="showMenu(\'san\')"]').style.display = 'inline-block';
+                document.querySelector('button[onclick="showMenu(\'san2\')"]').style.display = 'inline-block';
                 document.querySelector('button[onclick="showMenu(\'for\')"]').style.display = 'inline-block';
             } else if (visitCount === '2回目以降') {
                 document.querySelector('button[onclick="showMenu(\'male\')"]').style.display = 'inline-block';
                 document.querySelector('button[onclick="showMenu(\'female\')"]').style.display = 'inline-block';
+                document.querySelector('button[onclick="showMenu(\'san\')"]').style.display = 'inline-block';
                 document.querySelector('button[onclick="showMenu(\'san2\')"]').style.display = 'inline-block';
                 document.querySelector('button[onclick="showMenu(\'for\')"]').style.display = 'inline-block';
             }
@@ -415,7 +374,7 @@ let selectedMenuTime = 0;
     const repairLabel = document.getElementById('repairLabel');
     const repairButtons = document.getElementById('repairButtons');
 
-    if (selectedSymptom === 'お直しネイル' || selectedSymptom === '長さ出し') {
+    if (selectedSymptom === '初回' || selectedSymptom === '長さ出し') {
         repairLabel.style.display = 'block';
         repairButtons.style.display = 'flex';
     } else {
@@ -519,7 +478,7 @@ async function fetchAvailability(date) {
         return;
     }
 
-    const url = 'https://script.google.com/macros/s/AKfycbyVpOPJeMa5G-AXWCcqooULWyo17yxCvID8kI4JAEVkiaZgbddQOHiWejnW_hqxjwXlbw/exec' + 
+    const url = 'https://script.google.com/macros/s/AKfycbx_EeJa42l1YFZ81_aTuNioDPoq1SYH8aI0LGnssr9zZHSdt8kRz4zkeOi5p8t4kFNb/exec' + 
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
     try {
