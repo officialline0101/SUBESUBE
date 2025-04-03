@@ -431,6 +431,7 @@
         <div class="label">メニューをお選びください<br>（複数お選びいただけます）</div>
         <div class="info-text">※メニューを選択すると空き状況のカレンダーが表示されます</div>
         <div class="menu-sections">
+            <button type="button" onclick="showMenu('mimitsubo')">耳つぼジュエリー</button>
             <button type="button" onclick="showMenu('male')">脱毛メニュー</button>
             <button type="button" onclick="showMenu('female')">歯のホワイトニングメニュー</button>
             <button type="button" onclick="showMenu('eyebrows')">眉毛メニュー</button>
@@ -438,6 +439,19 @@
             <button type="button" onclick="showMenu('body')">ボディメニュー</button>
         </div>
 
+        <div id="mimitsubo" class="menu-section">
+            <div class="highlight-background">
+                <span class="highlight-text">◆耳つぼジュエリー◆</span>
+            </div>
+            <div class="symptoms">
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">両耳10個まで</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="15000">両耳つけ放題</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="15000">1ヶ月通い放題</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="15000">2回目以降</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">他メニューと併用￥500オフ</button>
+            </div>
+        </div>
+        
         <div id="male" class="menu-section">
             <div class="highlight-background">
                 <span class="highlight-text">◆脱毛メニュー◆</span>
@@ -604,7 +618,12 @@
             '美白・しみしわ・エイジングケアフェイシャル': 90,
             '【ハーブピーリング】ライト版♪マグマハーブ！': 60,
             '10回のエステより1回のハーブ☆本気の肌質改善!【ハーブピーリング】お顔': 120,
-            '10回のエステより1回の【ハーブピーリング】☆本気の肌質改善!  ボディ 1ｇ': 90
+            '10回のエステより1回の【ハーブピーリング】☆本気の肌質改善!  ボディ 1ｇ': 90,
+            '両耳10個まで': 60,
+            '両耳つけ放題': 60,
+            '1ヶ月通い放題': 60,
+            '2回目以降': 30,
+            '他メニューと併用￥500オフ': 30
         };
 
 
