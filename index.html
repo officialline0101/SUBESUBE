@@ -1484,11 +1484,6 @@ if (selectedSymptom && selectedSymptom.length > 0) {
                 selectedMenu = selectedButton.innerText;
             }
 
-            // すべてのメニューボタンの選択状態をリセット
-            document.querySelectorAll('.menu-sections button').forEach(button => {
-                button.classList.remove('active');
-            });
-
             // 選択されたメニューセクションを表示
             document.querySelectorAll('.menu-section').forEach(section => {
                 section.classList.remove('active');
